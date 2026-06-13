@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "TONDE",
+    "tagline": "Smart queue management"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "email": "Email address",
+    "password": "Password",
+    "loginButton": "Sign in",
+    "loggingIn": "Signing in...",
+    "errors": {
+      "invalidCredentials": "Invalid email or password",
+      "networkError": "Cannot reach the server"
+    }
+  },
+  "counter": {
+    "select": "Select my counter",
+    "open": "Open counter",
+    "close": "Close counter",
+    "pause": "Pause",
+    "resume": "Resume",
+    "status": {
+      "open": "Open",
+      "paused": "Paused",
+      "closed": "Closed"
+    }
+  },
+  "ticket": {
+    "callNext": "Call next",
+    "recall": "Recall",
+    "markAbsent": "Absent",
+    "transfer": "Transfer",
+    "complete": "Done",
+    "noTicket": "No tickets waiting",
+    "currentTicket": "Current ticket",
+    "nextTicket": "Next ticket",
+    "status": {
+      "waiting": "Waiting",
+      "called": "Called",
+      "serving": "Serving",
+      "done": "Done",
+      "absent": "Absent",
+      "transferred": "Transferred"
+    }
+  },
+  "queue": {
+    "waiting": "{{count}} waiting",
+    "waiting_one": "1 waiting",
+    "waiting_other": "{{count}} waiting",
+    "empty": "Queue empty",
+    "title": "Queue"
+  },
+  "status": {
+    "connected": "Connected",
+    "reconnecting": "Reconnecting...",
+    "offline": "Offline — last known state"
+  },
+  "shortcuts": {
+    "title": "Keyboard shortcuts",
+    "callNext": "Call next ticket",
+    "markAbsent": "Mark absent",
+    "transfer": "Transfer ticket",
+    "pause": "Pause / Resume",
+    "recall": "Recall",
+    "help": "Shortcuts help"
+  },
+  "errors": {
+    "callNextFailed": "Failed to call ticket",
+    "markAbsentFailed": "Action failed",
+    "transferFailed": "Transfer failed",
+    "generic": "An error occurred"
+  },
+  "stats": {
+    "title": "Today's stats",
+    "served": "Served",
+    "absent": "Absent",
+    "transferred": "Transferred",
+    "avgTime": "Avg time"
+  }
+}

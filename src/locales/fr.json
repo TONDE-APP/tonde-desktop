@@ -1,0 +1,82 @@
+{
+  "app": {
+    "name": "TONDE",
+    "tagline": "File d'attente intelligente"
+  },
+  "auth": {
+    "login": "Connexion",
+    "logout": "Déconnexion",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "loginButton": "Se connecter",
+    "loggingIn": "Connexion...",
+    "errors": {
+      "invalidCredentials": "Email ou mot de passe incorrect",
+      "networkError": "Impossible de joindre le serveur"
+    }
+  },
+  "counter": {
+    "select": "Choisir mon guichet",
+    "open": "Ouvrir le guichet",
+    "close": "Fermer le guichet",
+    "pause": "Mettre en pause",
+    "resume": "Reprendre",
+    "status": {
+      "open": "Ouvert",
+      "paused": "En pause",
+      "closed": "Fermé"
+    }
+  },
+  "ticket": {
+    "callNext": "Appeler suivant",
+    "recall": "Rappeler",
+    "markAbsent": "Absent",
+    "transfer": "Transférer",
+    "complete": "Terminer",
+    "noTicket": "Aucun ticket en attente",
+    "currentTicket": "Ticket en cours",
+    "nextTicket": "Prochain ticket",
+    "status": {
+      "waiting": "En attente",
+      "called": "Appelé",
+      "serving": "En service",
+      "done": "Terminé",
+      "absent": "Absent",
+      "transferred": "Transféré"
+    }
+  },
+  "queue": {
+    "waiting": "{{count}} en attente",
+    "waiting_one": "1 en attente",
+    "waiting_other": "{{count}} en attente",
+    "empty": "File vide",
+    "title": "File d'attente"
+  },
+  "status": {
+    "connected": "Connecté",
+    "reconnecting": "Reconnexion...",
+    "offline": "Hors ligne — dernier état affiché"
+  },
+  "shortcuts": {
+    "title": "Raccourcis clavier",
+    "callNext": "Appeler le suivant",
+    "markAbsent": "Marquer absent",
+    "transfer": "Transférer",
+    "pause": "Pause / Reprendre",
+    "recall": "Rappeler",
+    "help": "Aide raccourcis"
+  },
+  "errors": {
+    "callNextFailed": "Impossible d'appeler le ticket",
+    "markAbsentFailed": "Action impossible",
+    "transferFailed": "Transfert échoué",
+    "generic": "Une erreur est survenue"
+  },
+  "stats": {
+    "title": "Statistiques du jour",
+    "served": "Servis",
+    "absent": "Absents",
+    "transferred": "Transférés",
+    "avgTime": "Temps moyen"
+  }
+}

@@ -1,0 +1,10 @@
+# Normalisation des fins de ligne
+* text=auto eol=lf
+
+# Fichiers binaires
+*.png binary
+*.ico binary
+*.icns binary
+*.mp3 binary
+*.exe binary
+*.msi binary
