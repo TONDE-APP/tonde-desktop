@@ -5,7 +5,7 @@
 
 import { useTranslation } from "react-i18next";
 import { useAppStore } from "../../store/app.store";
-import { Wifi, WifiOff, RefreshCw } from "lucide-react";
+import { WifiOff, RefreshCw } from "lucide-react";
 
 export function ConnectionStatusBar() {
   const { t } = useTranslation();
