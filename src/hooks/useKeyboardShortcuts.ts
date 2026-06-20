@@ -3,7 +3,7 @@
 // Gestion globale des raccourcis clavier (Keyboard First)
 // ============================================================
 
-import { useEffect, useCallback, useRef } from "react";
+import { useLayoutEffect, useEffect, useCallback, useRef } from "react";
 import { useTicketStore } from "../store/ticketStore";
 import { useCounterStore } from "../store/counterStore";
 import { useAuthStore } from "../store/authStore";
@@ -23,7 +23,10 @@ const BLOCK_TAGS = new Set(["INPUT", "TEXTAREA", "SELECT"]);
 
 export function useKeyboardShortcuts(handlers: ShortcutHandlers) {
   const handlersRef = useRef(handlers);
-  handlersRef.current = handlers;
+
+  useLayoutEffect(() => {
+    handlersRef.current = handlers;
+  });
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     const target = e.target as HTMLElement;
