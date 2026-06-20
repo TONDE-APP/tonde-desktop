@@ -89,7 +89,7 @@ export function useAgentShortcuts(options: {
   onOpenHelp: () => void;
   onCloseDialog: () => void;
 }) {
-  const { callNext, recall, markAbsent, complete, currentTicket } = useTicketStore();
+  const { callNext, recall, markAbsent, currentTicket } = useTicketStore();
   const { myCounter, pauseCounter, resumeCounter } = useCounterStore();
   const { user } = useAuthStore();
 

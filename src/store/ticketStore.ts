@@ -33,7 +33,7 @@ const executeWithOfflineFallback = async (
   onlineAction: () => Promise<Ticket | void>,
   offlineAction: () => Promise<void>
 ): Promise<void> => {
-  const { isOnline, enqueue } = useOfflineStore.getState();
+  const { isOnline } = useOfflineStore.getState();
   if (isOnline) {
     try {
       return await onlineAction() as undefined;

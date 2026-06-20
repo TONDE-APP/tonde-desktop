@@ -7,13 +7,11 @@ import type {
   WebSocketEvent,
   WebSocketEventType,
   QueueUpdatePayload,
-  TicketCalledPayload,
   CounterStatusPayload,
-  AgentMessagePayload,
-} from "../../types";
-import { useOfflineStore } from "../../store/offlineStore";
-import { useQueueStore } from "../../store/queueStore";
-import { useCounterStore } from "../../store/counterStore";
+} from "../types";
+import { useOfflineStore } from "../store/offlineStore";
+import { useQueueStore } from "../store/queueStore";
+import { useCounterStore } from "../store/counterStore";
 
 type EventHandler<T = unknown> = (payload: T) => void;
 

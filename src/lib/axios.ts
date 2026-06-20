@@ -4,6 +4,7 @@
 
 import axios, { type AxiosInstance, type AxiosError } from "axios";
 import { API_BASE_URL, API_TIMEOUT_MS } from "../config/api";
+import { useAuthStore } from "../store/authStore";
 
 let _refreshPromise: Promise<string> | null = null;
 
@@ -19,9 +20,7 @@ export function createAxiosClient(): AxiosInstance {
   // ── Request interceptor : injecter le JWT ──
   client.interceptors.request.use(
     (config) => {
-      // Le token est récupéré dynamiquement depuis le store
-      // pour éviter les imports circulaires
-      const token = getTokenFromStore();
+      const token = useAuthStore.getState().user?.token;
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
@@ -44,7 +43,7 @@ export function createAxiosClient(): AxiosInstance {
         try {
           // Déduplique les refreshs simultanés
           if (!_refreshPromise) {
-            _refreshPromise = refreshToken().finally(() => {
+            _refreshPromise = doRefreshToken().finally(() => {
               _refreshPromise = null;
             });
           }
@@ -53,7 +52,7 @@ export function createAxiosClient(): AxiosInstance {
           return client(originalRequest);
         } catch {
           // Refresh échoué → déconnexion
-          handleSessionExpired();
+          useAuthStore.getState().logout();
           return Promise.reject(error);
         }
       }
@@ -65,33 +64,11 @@ export function createAxiosClient(): AxiosInstance {
   return client;
 }
 
-// ── Helpers late-bound pour éviter les imports circulaires ──
-
-function getTokenFromStore(): string | null {
-  try {
-    // Import dynamique pour casser la circularité store ↔ axios
-    const { useAuthStore } = require("../store/authStore");
-    return useAuthStore.getState().user?.token ?? null;
-  } catch {
-    return null;
-  }
-}
-
-async function refreshToken(): Promise<string> {
-  const { useAuthStore } = require("../store/authStore");
+async function doRefreshToken(): Promise<string> {
   await useAuthStore.getState().refreshToken();
   const token = useAuthStore.getState().user?.token;
   if (!token) throw new Error("No token after refresh");
   return token;
-}
-
-function handleSessionExpired(): void {
-  try {
-    const { useAuthStore } = require("../store/authStore");
-    useAuthStore.getState().logout();
-  } catch {
-    // Silencieux
-  }
 }
 
 export const httpClient = createAxiosClient();
